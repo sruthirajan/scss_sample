@@ -1,179 +1,306 @@
+$color-background: #ECECED;
+$color-text: #6F5246;
+$color-darkbg-txt: rgb(182, 111, 83);
 .body-container {
 	width: 100%;
 	top: 0px;
 	padding: 0px;
 	min-height: 100%;
-	position: relative;
-	margin: 0px auto;
-	background: #ECECED;
-}
-
-.header-container {
-	padding: 20px 20px 40px 20px;
-	color: #6F5246;
-	.img-container {
-		text-align: center;
+	background: $color-background;
+	@extend .pos-rel;
+	@extend .no-margin;
+	.header-container {
+		padding: 20px 20px 40px 20px;
+		@extend .txt-color;
+		.img-container {
+			@extend .text-center;
+		}
+		.header-img {
+			width: 30px;
+		}
+		.header-img:first-child {
+			padding-right: 12px;
+		}
+		.col-1-3,
+		.col-2-3 {
+			@extend .inline-block;
+			vertical-align: middle;
+		}
+		.menu-items {
+			@extend .no-display;
+		}
 	}
-	.header-img {
-		width: 30px;
+	.garden-background {
+		background-image: url("/assets/images/garden.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #fff;
+		padding-bottom: 60px;
+		margin-bottom: 40px;
+		@extend .text-center;
+		.headding-txt {
+			font-weight: bold;
+			font-size: 32px;
+			padding: 120px 0px 40px 0px;
+			width: 80%;
+			letter-spacing: 2px;
+			@extend .no-margin;
+		}
+		.sub-txt {
+			padding-bottom: 32px;
+			width: 80%;
+			font-size: 18px;
+			@extend .no-margin;
+		}
+		.scroll-down-img {
+			width: 30px;
+		}
 	}
-	.header-img:first-child {
-		padding-right: 12px;
+	.create-msg {
+		position: fixed;
+		bottom: 44px;
+		right: 20px;
+		img {
+			width: 50px;
+		} 
 	}
-	.col-1-3,
-	.col-2-3 {
-		@extend .inline-block;
-		vertical-align: middle;
-	}
-	.menu-items {
-		display: none;
-	}
-}
-
-.garden-background {
-	background-image: url("/assets/images/garden.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: #fff;
-	text-align: center;
-	padding-bottom: 60px;
-	margin-bottom: 40px;
-	.headding-txt {
-		font-weight: bold;
-		font-size: 32px;
-		padding: 120px 0px 40px 0px;
-		width: 80%;
-		margin: 0 auto;
-		letter-spacing: 2px;
-	}
-	.sub-txt {
-		padding-bottom: 32px;
-		width: 80%;
-		margin: 0 auto;
-		font-size: 18px;
-	}
-	.scroll-down-img {
-		width: 30px;
-	}
-}
-
-.create-msg {
-	position: fixed;
-	bottom: 44px;
-	right: 20px;
-	img {
-		width: 50px;
-	} 
-}
-
-.plant-list {
-	color: rgb(182, 111, 83);
-	.plant-item{
-		text-align: center;
-		margin-bottom: 40px;	
-		.plant-img-container {
-			background: #fff;
-			margin: 0 auto;
-			width: 200px;
-			position: relative;
-			margin-bottom: 20px;
-			padding: 10px;
-			.quick-view {
-				display: none;
+	.plant-list {
+		color: $color-darkbg-txt;
+		.plant-item{
+			margin-bottom: 40px;
+			@extend .text-center;	
+			.plant-img-container {
+				background: #fff;
+				width: 200px;
+				margin-bottom: 20px;
+				padding: 10px;
+				@extend .pos-rel;
+				@extend .no-margin;
+				.quick-view {
+					@extend .no-display;
+				}
+			}
+			.plant-img {
+				max-height: 100%;
+				max-width: 100%;
+			}
+			.plant-name {
+				margin-bottom: 10px;
+			}
+			.old-price {
+				padding-right: 20px;
+				text-decoration: line-through;
+			}
+			.plant-badge {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: #153435;
+				color: #fff;
+				padding: 5px;
 			}
 		}
-		.plant-img {
-			max-height: 100%;
-			max-width: 100%;
+	}
+	.load-more {
+		box-sizing: border-box;    
+		border: 2px solid #6F5246;
+		width: 70%;
+		padding: 10px;
+		@extend .txt-color;
+		@extend .no-margin;
+		@extend .text-center;
+	}
+	.contact-details {
+		color: rgb(182, 111, 83);
+		background: #153435;
+		padding-top: 60px;
+		margin-top: 20px;
+		font-size: 14px;
+		letter-spacing: 1px;
+		@extend .text-center;
+		.headding {
+			margin-bottom: 18px;
+			font-size: 18px;
+			letter-spacing: 6px;
 		}
-		.plant-name {
-			margin-bottom: 10px;
+		.address {
+			margin-bottom: 40px;
+			.address-item {
+				@extend .display-block;
+				margin-bottom: 8px;
+			}
 		}
-		.old-price {
-			padding-right: 20px;
-			text-decoration: line-through;
+		.input-email {
+			width: 70%;
+			height: 30px;
+			padding: 4px;
+			border: 0;
+			background: #2D4A4B;
+			color: $color-darkbg-txt;
+			margin-bottom: 12px;
 		}
-		.plant-badge {
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: #153435;
-			color: #fff;
-			padding: 5px;
+		input::placeholder {
+			color: $color-darkbg-txt;
 		}
 	}
-}
-
-.load-more {
-	box-sizing: border-box;    
-	border: 2px solid #6F5246;
-	color: #6F5246;
-	text-align: center;
-	width: 70%;
-	margin: 0 auto;
-	padding: 10px;
-	margin-bottom: 20px;
-}
-
-.contact-details {
-	color: rgb(182, 111, 83);
-	background: #153435;
-	padding-top: 60px;
-	text-align: center;
-	font-size: 14px;
-	letter-spacing: 1px;
-	.headding {
-		margin-bottom: 18px;
-		font-size: 18px;
-		letter-spacing: 6px;
+	.logo-list {
+		margin-top: 20px;
+		margin-bottom: 60px;
+		.media-logo {
+			width: 30px;
+			margin: 8px;
+		}
 	}
-	.address {
-		margin-bottom: 40px;
-		.address-item {
+	.created-container {
+		padding-bottom: 15px;
+		.copyright {
+			color: $color-darkbg-txt;
 			@extend .display-block;
-			margin-bottom: 8px;
+			@extend .text-center;
+			padding-bottom: 2px;
 		}
 	}
-	.input-email {
-    width: 70%;
-    height: 30px;
-    padding: 4px;
-    border: 0;
-		background: #2D4A4B;
-		color: rgb(182, 111, 83);
-		margin-bottom: 12px;
+	.map-view {
+		margin-bottom: 20px;
 	}
-	input::placeholder {
-		color: rgb(182, 111, 83);
+	.map-large {
+		@extend .no-display;
 	}
 }
 
-.logo-list {
-	margin-top: 20px;
-	margin-bottom: 60px;
-	.media-logo {
-		width: 30px;
-		margin: 8px;
+.txt-color {
+	color: $color-text;
+}
+
+@media (min-width: 800px) {
+	.body-container {
+		.fixed-header {
+			position: fixed;
+			top: 0;
+			background: #ECECED;
+			width: 100%;
+			z-index: 1;
+			.header-container {
+				margin: 0px 40px;
+				padding: 20px 0px;
+				.col-1-3.img-container {
+					width: auto;
+					padding-left: 2px;
+					padding-right: 0px;
+					float: right;
+					margin-top: -10px;
+					.header-img:first-child {
+						padding-right: 0px;
+					}
+					.header-img:last-child {
+						display: none;
+					}
+				}
+				.call-us {
+					float: right;
+					padding-right: 16px;
+				}
+				.menu-items {
+					display: inline-block;
+					padding: 0px 32px;
+					span:nth-child(n) {
+						padding: 0px 5px;
+					}
+				}
+			}
+		}
+		.garden-background {
+			margin: 0px 44px;
+			padding-bottom: 150px;
+			padding-top: 80px;
+			.headding-txt {
+				font-weight: 4px;
+				font-size: 60px;
+				padding-top: 150px;
+				span:last-child {
+					display: block;
+				}
+			}
+			.sub-txt {
+				width: 50%;
+			}
+		}
+		.plant-list {
+			margin: 0px 22px;
+			text-align: center;
+			.plant-item{
+				display: inline-block;
+				margin: 14px;
+				.plant-img-container {
+					position: relative;
+					margin-bottom: 20px;
+					padding: 29px;
+					height: 250px;
+					width: 320px;
+					&:hover .quick-view {
+						display: block;
+					}
+					.quick-view {
+						position: absolute;
+						display: none;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						width: 100%;
+						padding: 14px 0;
+						background: #fff;
+						color: rgb(182, 111, 83);
+					}
+				}
+			}
+		}
+		.load-more {
+			display: none;
+		}
+		.contact-details {
+			width: 92%;
+			margin: 0 auto;
+			padding-top: 80px;
+			.contact-section {
+				width: 30%;
+				display: inline-block;
+				vertical-align: top;
+			}
+			.subscribe-input {
+				padding-top: 20px;
+				.input-email {
+					width: 20%;
+					margin-right: 5px;
+				}
+				.subscribe-btn {
+					display: inline;
+				}
+			}
+		}
+		.map-view {
+			display: none;
+		}
+		.map-large {
+			display: block;
+			margin-bottom: 20px;
+			img {
+				height: auto;
+				max-width: 100%;
+			}
+		}
+		.created-container {
+			.copyright {
+				display: inline-block;
+			}
+		}
 	}
 }
 
-.created-container {
-	padding-bottom: 15px;
-	.copyright {
-		color: rgb(182, 111, 83);
-		text-align: center;
-		@extend .display-block;
-		padding-bottom: 2px;
-	}
-}
-
-.map-view {
-	margin-bottom: 20px;
-}
-
-.map-large {
-	display: none;
-}
+/*
+  ========================================
+  Common styles
+  ========================================
+*/
 
 .width-100 {
 	width: 100%;
@@ -196,6 +323,30 @@
 	text-align: center;
 }
 
+.col-1-3 {
+	width: 33.33%;
+}
+.col-2-3 {
+	width: 66.66%;
+}
+
+.float-left {
+	float: left;
+}
+
+.pos-rel {
+	position: relative;
+}
+
+.no-display {
+	display: none;
+}
+
+.no-margin {
+	margin: 0 auto;
+}
+/****************************************/
+
 /*
   ========================================
   Clearfix
@@ -213,137 +364,4 @@
   clear: both;
   *zoom: 1;
 }
-
-.col-1-3 {
-	width: 33.33%;
-}
-.col-2-3 {
-	width: 66.66%;
-}
-
-.float-left {
-	float: left;
-}
-
-@media (min-width: 800px) {
-	.fixed-header {
-		position: fixed;
-		top: 0;
-    	background: #ECECED;
-    	width: 100%;
-    	z-index: 1;
-		.header-container {
-			margin: 0px 40px;
-			padding: 20px 0px;
-			.col-1-3.img-container {
-				width: auto;
-				padding-left: 2px;
-				padding-right: 0px;
-				float: right;
-				margin-top: -10px;
-				.header-img:first-child {
-					padding-right: 0px;
-				}
-				.header-img:last-child {
-					display: none;
-				}
-			}
-			.call-us {
-				float: right;
-				padding-right: 16px;
-			}
-			.menu-items {
-				display: inline-block;
-				padding: 0px 32px;
-				span:nth-child(n) {
-					padding: 0px 5px;
-				}
-			}
-		}
-	}
-	.garden-background {
-		margin: 0px 44px;
-		padding-bottom: 150px;
-		padding-top: 80px;
-		.headding-txt {
-			font-weight: 4px;
-			font-size: 60px;
-			padding-top: 150px;
-			span:last-child {
-				display: block;
-			}
-		}
-		.sub-txt {
-			width: 50%;
-		}
-	}
-	.plant-list {
-		margin: 0px 22px;
-		text-align: center;
-		.plant-item{
-			display: inline-block;
-			margin: 14px;
-			.plant-img-container {
-				position: relative;
-				margin-bottom: 20px;
-				padding: 29px;
-				height: 250px;
-				width: 320px;
-				&:hover .quick-view {
-					display: block;
-				}
-				.quick-view {
-					position: absolute;
-					display: none;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					width: 100%;
-					padding: 14px 0;
-					background: #fff;
-					color: rgb(182, 111, 83);
-				}
-			}
-		}
-	}
-	.load-more {
-		display: none;
-	}
-	.contact-details {
-		width: 92%;
-		margin: 0 auto;
-		padding-top: 80px;
-		.contact-section {
-			width: 30%;
-			display: inline-block;
-			vertical-align: top;
-		}
-		.subscribe-input {
-			padding-top: 20px;
-			.input-email {
-				width: 20%;
-				margin-right: 5px;
-			}
-			.subscribe-btn {
-				display: inline;
-			}
-		}
-	}
-	.map-view {
-		display: none;
-	}
-	.map-large {
-		display: block;
-		margin-bottom: 20px;
-		img {
-			height: auto;
-			max-width: 100%;
-		}
-	}
-	.created-container {
-		.copyright {
-			display: inline-block;
-		}
-	}
-}
-  
+/****************************************/
