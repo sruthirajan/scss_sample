@@ -1,6 +1,12 @@
 $color-background: #ECECED;
 $color-text: #6F5246;
 $color-darkbg-txt: rgb(182, 111, 83);
+$color-darkbg: #153435;
+$color-darkshadow: #2D4A4B;
+$color-light: #fff;
+@mixin no-display {
+	display: none;
+}
 .body-container {
 	width: 100%;
 	top: 0px;
@@ -27,14 +33,14 @@ $color-darkbg-txt: rgb(182, 111, 83);
 			vertical-align: middle;
 		}
 		.menu-items {
-			@extend .no-display;
+			@include no-display;
 		}
 	}
 	.garden-background {
 		background-image: url("/assets/images/garden.png");
 		background-repeat: no-repeat;
 		background-size: cover;
-		color: #fff;
+		color: $color-light;
 		padding-bottom: 60px;
 		margin-bottom: 40px;
 		@extend .text-center;
@@ -66,18 +72,18 @@ $color-darkbg-txt: rgb(182, 111, 83);
 	}
 	.plant-list {
 		color: $color-darkbg-txt;
+		margin: 20px 22px 0px 22px;
 		.plant-item{
 			margin-bottom: 40px;
 			@extend .text-center;	
 			.plant-img-container {
-				background: #fff;
+				background: $color-light;
 				width: 200px;
-				margin-bottom: 20px;
+				margin: 0px auto 20px auto;
 				padding: 10px;
 				@extend .pos-rel;
-				@extend .no-margin;
 				.quick-view {
-					@extend .no-display;
+					@include no-display;
 				}
 			}
 			.plant-img {
@@ -95,15 +101,15 @@ $color-darkbg-txt: rgb(182, 111, 83);
 				position: absolute;
 				top: 0;
 				left: 0;
-				background: #153435;
-				color: #fff;
+				background: $color-darkbg;
+				color: $color-light;
 				padding: 5px;
 			}
 		}
 	}
 	.load-more {
 		box-sizing: border-box;    
-		border: 2px solid #6F5246;
+		border: 2px solid $color-text;
 		width: 70%;
 		padding: 10px;
 		@extend .txt-color;
@@ -111,8 +117,8 @@ $color-darkbg-txt: rgb(182, 111, 83);
 		@extend .text-center;
 	}
 	.contact-details {
-		color: rgb(182, 111, 83);
-		background: #153435;
+		color: $color-darkbg-txt;
+		background: $color-darkbg;
 		padding-top: 60px;
 		margin-top: 20px;
 		font-size: 14px;
@@ -135,7 +141,7 @@ $color-darkbg-txt: rgb(182, 111, 83);
 			height: 30px;
 			padding: 4px;
 			border: 0;
-			background: #2D4A4B;
+			background: $color-darkshadow;
 			color: $color-darkbg-txt;
 			margin-bottom: 12px;
 		}
@@ -164,7 +170,7 @@ $color-darkbg-txt: rgb(182, 111, 83);
 		margin-bottom: 20px;
 	}
 	.map-large {
-		@extend .no-display;
+		@include no-display;
 	}
 }
 
@@ -177,7 +183,7 @@ $color-darkbg-txt: rgb(182, 111, 83);
 		.fixed-header {
 			position: fixed;
 			top: 0;
-			background: #ECECED;
+			background: $color-background;
 			width: 100%;
 			z-index: 1;
 			.header-container {
@@ -215,18 +221,17 @@ $color-darkbg-txt: rgb(182, 111, 83);
 			padding-top: 80px;
 			.headding-txt {
 				font-weight: 4px;
-				font-size: 60px;
+				font-size: 56px;
 				padding-top: 150px;
-				span:last-child {
-					display: block;
+				.sub-text-2 {
+					display: inline-block;
 				}
-			}
+ 			}
 			.sub-txt {
 				width: 50%;
 			}
 		}
 		.plant-list {
-			margin: 0px 22px;
 			text-align: center;
 			.plant-item{
 				display: inline-block;
@@ -248,8 +253,8 @@ $color-darkbg-txt: rgb(182, 111, 83);
 						right: 0;
 						width: 100%;
 						padding: 14px 0;
-						background: #fff;
-						color: rgb(182, 111, 83);
+						background: $color-light;
+						color: $color-darkbg-txt;
 					}
 				}
 			}
@@ -336,10 +341,6 @@ $color-darkbg-txt: rgb(182, 111, 83);
 
 .pos-rel {
 	position: relative;
-}
-
-.no-display {
-	display: none;
 }
 
 .no-margin {
